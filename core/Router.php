@@ -3,7 +3,7 @@
 /**
  * Routing
  */
-class Routes
+class Router
 {
     private $routes = [];
 
@@ -17,6 +17,6 @@ class Routes
         if (array_key_exists($uri, $this->routes)) {
             return $this->routes[$uri];
         }
-        throw new Exception("Router not available");
+        throw new Exception("Router not available", 1);
     }
 }
