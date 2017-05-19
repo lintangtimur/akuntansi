@@ -118,13 +118,12 @@
               <label for="unitField" class="col-xs-3">UNIT</label>
               <div class="col-xs-7">
                 <select class="form-control" name="" id="unitmodal">
+                  <option>Pilih</option>
                   <?php
-                  $sql = "SELECT unit, nama FROM kodeunit where deleted = 'no'";
-                  echo "<option>Pilih</option>";
-                  while ($row = $result->fetch_object()) {
-                      echo "<option value='$row->unit'>$row->nama</option>";
-                  }
-                   ?>
+                  $result = $con->query($sql);
+                  while ($row = $result->fetch_object()) :?>
+                    <option value="<?= $row->unit ?>"><?= $row->nama;?></option>
+                  <?php endwhile; ?>
                 </select>
               </div>
             </div>
