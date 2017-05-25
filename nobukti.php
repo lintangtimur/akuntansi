@@ -6,6 +6,7 @@ $con = Connection::Connect();
 $pilih = $_POST['tipeKas'];
 $unit = $_POST['unitkredit'];
 $tgl = $_POST['tgl'];
+
 $bulan = substr($tgl, 5, 2); //2017-05-10 => 05
 $tahun = substr($tgl, 0, 4); //2017-05-10 => 2017
 $count = 0;

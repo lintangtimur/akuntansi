@@ -55,7 +55,7 @@
               <form>
                 <div class="input-field">
                   <input type="search" id="bukti" name="" value="">
-                  <label for="search" class="label-icon"><i class="material-icons">search</i></label>
+                  <label for="" class="label-icon"><i class="material-icons"></i></label>
                 </div>
               </form>
 
@@ -99,7 +99,7 @@
       </div>
       <!-- <div class="divider"></div> -->
       <div class="row">
-        <form class="col s12 m6 l6" method="">
+        <div class="col s12 m6 l6">
           <div class="card z-depth-4">
             <div class="card-content white-text">
               <!-- <span class="card-title">Card Title</span> -->
@@ -131,14 +131,14 @@
               </div>
               <div class="row">
                 <div class="input-field col s12 inline">
-                  <button data-target="modal1" class="btn blue darken-1 waves-effect waves-light" type="submit" name="">DEBET
+                  <button data-target="modal1" class="btn blue darken-1 waves-effect waves-light"  name="">DEBET
                     <i class="material-icons right">send</i>
                   </button>
                 </div>
               </div>
             </div>
           </div>
-        </form>
+        </div>
 
         <form class="col l6">
           <div class="card z-depth-4">
@@ -180,9 +180,12 @@
           <table class="striped">
            <thead>
              <tr>
-                 <th>Name</th>
-                 <th>Item Name</th>
-                 <th>Item Price</th>
+                 <th>#</th>
+                 <th>No Rek</th>
+                 <th>Unit</th>
+                 <th>Debet</th>
+                 <th>Kredit</th>
+                 <th>Keterangan</th>
              </tr>
            </thead>
 
@@ -205,66 +208,69 @@
            </tbody>
          </table>
         </div>
-
       </div>
     </div>
     </div>
 
-  <!-- Modal Structure -->
+  <!-- Modal DEBET -->
   <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>Debet Button</h4>
-      <div class="row">
-        <label for="">UNIT</label>
-        <div class="input-field col s12 inline">
-          <select id="unit">
-            <option value="" disabled selected>Choose your option</option>
-            <?php
-            $result = $con->query($sql);
-            while ($row = $result->fetch_object()):?>
-            <option value="<?=$row->unit?>"><?=$row->nama;?></option>
+      <div class="modal-content">
+        <h4>Debet Button</h4>
+        <div class="row">
+          <form class="" id="modalDebet" method="post">
+          <label for="">UNIT</label>
+          <div class="input-field col s12 inline">
+            <select id="unitmodal">
+              <option value="" disabled selected>Choose your option</option>
+              <?php
+              $result = $con->query($sql);
+              while ($row = $result->fetch_object()):?>
+              <option value="<?=$row->unit?>"><?=$row->nama;?></option>
+              <?php endwhile; ?>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <label for="">NO AKUN</label>
+          <div class="input-field col s12 inline">
+            <select id="akunmodal">
+              <option value="" selected>PILIH</option>
+              <?php
+              $sql = "SELECT kode1,kode2,Nama FROM  kode_rek2";
+              $result = $con->query($sql);
+              while ($row = $result->fetch_object()) :
+              ?>
+              <option value="<?= $row->kode2;?>"><?= $row->kode1?><?= $row->kode2?> | <?= $row->Nama;?></option>
             <?php endwhile; ?>
-          </select>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <label for="">JUMLAH</label>
+          <div class="input-field col s12 inline">
+            <input type="text" id="jumlahinput" name="jumlahinput" value="">
+          </div>
+        </div>
+        <div class="row">
+          <label for="">KETERANGAN</label>
+          <div class="input-field col s12 inline">
+            <textarea id="keterangan" class="materialize-textarea" data-length="120" name="keterangan" rows="8" cols="80"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <label for="">NO CEK</label>
+          <div class="input-field col s12 inline">
+            <input type="text" id="nocekmodal" name="nocek" value="">
+          </div>
         </div>
       </div>
-      <div class="row">
-        <label for="">JENIS AKUN</label>
-        <div class="input-field col s12 inline">
-          <select id="jenisAkun">
-            <option value="" disabled selected>PILIH</option>
-            <option value="1">Asset</option>
-            <option value="2">Hutang</option>
-            <option value="3">Ekuitas</option>
-            <option value="4">Pendapatan</option>
-            <option value="5">Biaya</option>
-          </select>
-        </div>
+      <div class="modal-footer">
+        <button id="simpan" class="modal-action modal-close waves-effect waves-green btn-flat" name="" type="submit" >SIMPAN</button>
       </div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Simpan</a>
-    </div>
-  </div>
+  </form>
     <script src="asset/js/jquery.js"></script>
-    <script src="asset/js/materialize.js"></script>
     <script src="asset/js/cekbukti.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('select').material_select();
-    $('.datepicker').pickadate({
-    selectMonths: false, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year
-    format: 'yyyy/mm/dd'
-  });
-     $('.modal').modal();
-    $('.button-collapse').sideNav({
-    menuWidth: 300, // Default is 300
-    edge: 'left', // Choose the horizontal origin
-    closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    draggable: true // Choose whether you can drag to open on touch screens
-  });
-});
-
-</script>
+    <script src="asset/js/materialize.js"></script>
   </body>
 </html>
