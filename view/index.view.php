@@ -15,8 +15,9 @@
   #container{
     padding-left: 300px;
   }
+
   ul.dropdown-content.select-dropdown li span {
-    color: #1e88e5 ; /* no need for !important :) */
+    color: #5e35b1  ; /* no need for !important :) */
 }
   #content{
     padding : 40px;
@@ -55,7 +56,7 @@
               <form>
                 <div class="input-field">
                   <input type="search" id="bukti" name="" value="">
-                  <label for="" class="label-icon"><i class="material-icons"></i></label>
+                  <label for="" class="label-icon"><i class="material-icons">search</i></label>
                 </div>
               </form>
 
@@ -119,14 +120,14 @@
               <div class="row">
                 <label for="">Tanggal Transaksi</label>
                 <div class="input-field col s12 inline">
-                  <input type="date" id="tglTransaksi" class="datepicker" name="" value="">
+                  <input type="date" id="tglTransaksi" data-error class="datepicker" name="" value="">
                 </div>
               </div>
 
               <div class="row">
                 <label for="">Jumlah Debet</label>
                 <div class="input-field col s12 inline">
-                  <input disabled type="date" class="datepicker" name="" value="">
+                  <input disabled type="text" class="" name="" value="">
                 </div>
               </div>
               <div class="row">

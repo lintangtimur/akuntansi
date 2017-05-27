@@ -35,7 +35,7 @@ $(document).ready(function(){
     .done(function(msg){
         console.log("MSG:"+msg);
       })
-      .fail(function(data){
+    .fail(function(data){
         console.log("eror");
       });
     });
@@ -50,10 +50,17 @@ $(document).ready(function(){
     $.ajax({
       url : "nobukti.php",
       type : "POST",
+      dataType : "json",
       data : datanya,
+      encode : true,
       success : function(ajaxData){
-        $("#bukti").val(ajaxData);
         console.log(ajaxData);
+        if(ajaxData.error)
+        {
+          Materialize.toast('Harap masukkan tanggal', 4000, 'red accent-2');
+        }else{
+          $("#bukti").val(ajaxData.nomor+"/"+ajaxData.pilih+"/"+ajaxData.unit+"/"+ajaxData.bulan    +"/"+ajaxData.tahun);
+        }
       }
     });
 });

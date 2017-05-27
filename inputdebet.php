@@ -8,11 +8,11 @@ $jenis = $_POST['tipe'];
 $unit = $_POST['nounit'];
 $nocek = $_POST['nocek'];
 $keterangan = $_POST['keterangan'];
-$sql = "INSERT INTO jurnaldetil VALUES('', '$bukti', '$inputakun', '$unit', '$jenis', '$jumlah',
+$sql = "INSERT INTO jurnaldetil VALUES('','$bukti', '$inputakun', '$unit', '$jenis', '$jumlah',
   '$keterangan', '$nocek', '0')";
 $result = $con->query($sql);
 if ($result) {
     echo "DATA TELAH MASUK";
 } else {
-    echo "Failed!!";
+    echo $con->error;
 }
