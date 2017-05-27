@@ -32,11 +32,14 @@ $(document).ready(function(){
       url: 'inputdebet.php',
       data:data1
     })
-    .done(function(msg){
-        console.log("MSG:"+msg);
+    .done(function(data){
+      console.log(data);
+        Materialize.toast('Success', 2000, 'green');
+        $("tbody").html(data.table);
+        $("#jumlahD").val(data.total);
       })
     .fail(function(data){
-        console.log("eror");
+        console.log(data);
       });
     });
 
@@ -54,10 +57,10 @@ $(document).ready(function(){
       data : datanya,
       encode : true,
       success : function(ajaxData){
-        console.log(ajaxData);
+        // console.log(ajaxData);
         if(ajaxData.error)
         {
-          Materialize.toast('Harap masukkan tanggal', 4000, 'red accent-2');
+          Materialize.toast(ajaxData.message, 4000, 'red accent-2');
         }else{
           $("#bukti").val(ajaxData.nomor+"/"+ajaxData.pilih+"/"+ajaxData.unit+"/"+ajaxData.bulan    +"/"+ajaxData.tahun);
         }

@@ -12,10 +12,19 @@
   body{
     background-color: #eceff1 ;
   }
+  input#jumlahD{
+    font-weight: bold;
+    color: #0d47a1;
+  }
   #container{
     padding-left: 300px;
   }
-
+  #toast-container {
+    /*min-width: 100%;*/
+    top: 90%;
+    left: 40%;
+    right: unset;
+}
   ul.dropdown-content.select-dropdown li span {
     color: #5e35b1  ; /* no need for !important :) */
 }
@@ -127,7 +136,7 @@
               <div class="row">
                 <label for="">Jumlah Debet</label>
                 <div class="input-field col s12 inline">
-                  <input disabled type="text" class="" name="" value="">
+                  <input disabled type="text" class="" id="jumlahD" name="" value="">
                 </div>
               </div>
               <div class="row">
@@ -189,23 +198,7 @@
                  <th>Keterangan</th>
              </tr>
            </thead>
-
            <tbody>
-             <tr>
-               <td>Alvin</td>
-               <td>Eclair</td>
-               <td>$0.87</td>
-             </tr>
-             <tr>
-               <td>Alan</td>
-               <td>Jellybean</td>
-               <td>$3.76</td>
-             </tr>
-             <tr>
-               <td>Jonathan</td>
-               <td>Lollipop</td>
-               <td>$7.00</td>
-             </tr>
            </tbody>
          </table>
         </div>

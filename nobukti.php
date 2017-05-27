@@ -4,7 +4,7 @@ require "core/utilities/RomanMonths.php";
 header('Content-Type: application/json');
 $con = Connection::Connect();
 $required = [
-  "tgl", "tipeKas"
+  "tgl"
 ];
 $error = false;
 foreach ($required as $req) {
@@ -37,7 +37,10 @@ if (!$error) {
 
       // $nomor."/".$pilih."/".$unit."/".RomanMonths::Convert($bulan)."/".$tahun
 } else {
-    $data = ["error" => $error];
+    $data = [
+      "error" => true,
+      "message" => "Tanggal transaksi dibutuhkan!"
+    ];
 }
 
 echo json_encode($data);
