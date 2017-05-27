@@ -4,7 +4,7 @@ require "core/utilities/RomanMonths.php";
 header('Content-Type: application/json');
 $con = Connection::Connect();
 $required = [
-  "tgl"
+  "tgl", "tipeKas"
 ];
 $error = false;
 foreach ($required as $req) {
