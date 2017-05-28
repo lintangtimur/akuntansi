@@ -1,5 +1,6 @@
 <?php
 require "core/database/Connection.php";
+require "core/utilities/Currency.php";
 header('Content-Type: application/json');
 $con = Connection::Connect();
 
@@ -29,7 +30,8 @@ while ($row = $result->fetch_object()) {
     $table .= "<td>$looping"."</td>";
     $table .= "<td>$row->noakun"."</td>";
     $table .= "<td>$row->nama"."</td>";
-    $table .= "<td>$row->jumlah"."</td><td></td>";
+    $nominal = Currency::rupiah($row->jumlah);
+    $table .= "<td class='harga'>$nominal"."</td><td></td>";
     $table .= "<td>$row->keterangan"."</td></tr>";
 }
 $data['table'] = $table;
@@ -42,6 +44,6 @@ $sql_sum = "SELECT SUM(jumlah) AS total
 
 $result = $con->query($sql_sum);
 while ($row = $result->fetch_object()) {
-    $data['total'] = $row->total;
+    $data['total'] = Currency::rupiah($row->total);
 }
 echo json_encode($data);

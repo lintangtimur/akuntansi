@@ -19,6 +19,9 @@
   #container{
     padding-left: 300px;
   }
+  .harga{
+    text-align: right;
+  }
   #toast-container {
     /*min-width: 100%;*/
     top: 90%;
