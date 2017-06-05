@@ -78,7 +78,7 @@
     </nav>
 <div class="" id="container">
   <ul id="slide-out" class="side-nav fixed show-on-large-only">
-    <li><a href="laporan-keuangan">Laporan Keuangan</a></li>
+    <li><a href="report">Report</a></li>
     <li><a href="about">About</a></li>
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
@@ -117,6 +117,7 @@
             <div class="card-content white-text">
               <!-- <span class="card-title">Card Title</span> -->
               <div class="row">
+                <input type="hidden" name="jenisDebet" value="D">
                 <label for="">TIPE KAS</label>
                 <div class="input-field col s12 inline">
                   <select id="tipeKas">
@@ -158,6 +159,7 @@
             <div class="card-content white-text">
               <!-- <span class="card-title">Card Title</span> -->
               <div class="row">
+                <input type="hidden" name="jenisKredit" value="K">
                 <label for="">UNIT</label>
                 <div class="input-field col s12 inline">
                   <select id="unit">
@@ -172,12 +174,12 @@
               <div class="row">
                 <label for="">Jumlah Kredit</label>
                 <div class="input-field col s12 inline">
-                  <input disabled  type="text"name="" value="">
+                  <input disabled id="jumlahK" id="jumlahD" type="text"name="" value="">
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12 inline">
-                  <button class="btn waves-effect waves-light blue " type="submit" name="">KREDIT INPUT
+                  <button class="btn waves-effect waves-light blue" data-target="modal2" name="">KREDIT INPUT
                     <i class="material-icons right">send</i>
                   </button>
                 </div>
@@ -205,7 +207,9 @@
            </tbody>
          </table>
         </div>
+
       </div>
+      <button  id="selesai" type="button" class="btn green waves-effect waves-light" name="button">DONE</button>
     </div>
     </div>
 
@@ -214,7 +218,7 @@
       <div class="modal-content">
         <h4>Debet Button</h4>
         <div class="row">
-          <form class="" id="modalDebet" method="post">
+          <form class="" id="modalDebet" action="" method="post">
           <label for="">UNIT</label>
           <div class="input-field col s12 inline">
             <select id="unitmodal">
@@ -266,6 +270,64 @@
       </div>
     </div>
   </form>
+
+  <!-- Modal Kredit -->
+  <div id="modal2" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4>KREDIT</h4>
+        <div class="row">
+          <form class="" id="modalKredit" method="post">
+          <label for="">UNIT</label>
+          <div class="input-field col s12 inline">
+            <select id="unitmodal_kredit">
+              <option value="" disabled selected>Choose your option</option>
+              <?php
+              $sql = "SELECT unit, nama from kodeunit where deleted='no'";
+              $result = $con->query($sql);
+              while ($row = $result->fetch_object()):?>
+              <option value="<?=$row->unit?>"><?=$row->nama;?></option>
+              <?php endwhile; ?>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <label for="">NO AKUN</label>
+          <div class="input-field col s12 inline">
+            <select id="akunmodal_kredit">
+              <option value="" selected>PILIH</option>
+              <?php
+              $sql = "SELECT kode1,kode2,Nama FROM  kode_rek2";
+              $result = $con->query($sql);
+              while ($row = $result->fetch_object()) :
+              ?>
+              <option value="<?= $row->kode2;?>"><?= $row->kode1?><?= $row->kode2?> | <?= $row->Nama;?></option>
+            <?php endwhile; ?>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <label for="">JUMLAH</label>
+          <div class="input-field col s12 inline">
+            <input type="text" id="jumlahinput_kredit" name="jumlahinput" value="">
+          </div>
+        </div>
+        <div class="row">
+          <label for="">KETERANGAN</label>
+          <div class="input-field col s12 inline">
+            <textarea id="keterangan_kredit" class="materialize-textarea" data-length="120" name="keterangan" rows="8" cols="80"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <label for="">NO CEK</label>
+          <div class="input-field col s12 inline">
+            <input type="text" id="nocekmodal_kredit" name="nocek" value="">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="simpan" class="modal-action modal-close waves-effect waves-green btn-flat" name="" type="submit" >SIMPAN</button>
+      </div>
+    </div>
     <script src="asset/js/jquery.js"></script>
     <script src="asset/js/cekbukti.js"></script>
     <script src="asset/js/materialize.js"></script>
