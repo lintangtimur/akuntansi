@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>AKUNTANSI JURNAL</title>
     <link rel="stylesheet" href="asset/css/materialize.min.css">
-
     <link rel="stylesheet" href="https:/fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
@@ -49,7 +48,6 @@
      border-bottom: 1px solid red !important;
      box-shadow: 0 1px 0 0 red !important
    }
-
    input[type="search"] {
      height: 64px !important; /* or height of nav */
    }
@@ -62,7 +60,7 @@
 
     <nav class="top-nav blue darken-1">
       <div id="container" class="container nav-wrapper">
-          <a href="#" class="brand-logo">STELINDATA</a>
+          <a href="#" class="brand-logo">UNIKA</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <div class="nav-wrapper">
               <form>
@@ -80,6 +78,7 @@
   <ul id="slide-out" class="side-nav fixed show-on-large-only">
     <li><a href="report">Report</a></li>
     <li><a href="about">About</a></li>
+    <li><a href="posting">Posting</a></li>
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
         <li>
@@ -122,10 +121,10 @@
                 <div class="input-field col s12 inline">
                   <select id="tipeKas">
                     <option value="" disabled selected>Choose your option</option>
-                    <option value="">KAS MASUK</option>
-                    <option value="">KAS KELUAR</option>
-                    <option value="">BANK MASUK</option>
-                    <option value="">BANK KELUAR</option>
+                    <option value="KM">KAS MASUK</option>
+                    <option value="KK">KAS KELUAR</option>
+                    <option value="BM">BANK MASUK</option>
+                    <option value="BK">BANK KELUAR</option>
                   </select>
                 </div>
               </div>

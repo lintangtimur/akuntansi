@@ -9,7 +9,7 @@ $tipeKas = $_POST['tipeKas'];
 $unit = $_POST['nounit'];
 $user = "";
 
-$sql = "INSERT INTO jurnalumum VALUES('', '$tanggal', '', '$bukti', '$tipeKas', '$user', '$unit','0', '0', '0','0','0','0')";
+$sql = "INSERT INTO jurnalumum VALUES('', '$tanggal', '', '$bukti', '$tipeKas', '$user', '0','0', '0', '0','0','0','$unit')";
 $result = $con->query($sql);
 if ($result) {
     $data = ["success" => true];

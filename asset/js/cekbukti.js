@@ -93,6 +93,7 @@ $(document).ready(function(){
           if(data.success)
           {
             Materialize.toast("Berhasil masuk ke jurnal umum", 4000, 'green accent-2');
+            location.reload();
           }else{
             Materialize.toast("GAGAL input ke jurnal umum", 4000, 'red accent-2');
           }
@@ -103,6 +104,7 @@ $(document).ready(function(){
       Materialize.toast("<i class='material-icons'>info</i>Jumlah debet tidak sama dengan jumlah kredit"+jumlahKredit, 3000, 'deep-orange lighten-1');
     }
   });
+
   $("#unit").change(function(){
     var pilih = $("#tipeKas").val();
     var tglTransaksi = $("#tglTransaksi").val();
