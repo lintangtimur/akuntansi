@@ -105,6 +105,11 @@ $(document).ready(function(){
     }
   });
 
+  $('#posting').click(function(){
+    console.log("keklik");
+    $('#modal_confirm').modal('open');
+  });
+
   $("#unit").change(function(){
     var pilih = $("#tipeKas").val();
     var tglTransaksi = $("#tglTransaksi").val();
