@@ -1,5 +1,7 @@
 <?php
-
+/**
+* Convert ke rupiah
+*/
 class Currency
 {
     public static function rupiah($number)

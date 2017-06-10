@@ -10,12 +10,14 @@ class QueryBuilder
     private $whereAndClause;
     private $limit;
     private $joinClause;
+    private $onClause;
+    protected $bajingan;
 
     /**
     * select table mana saja yang akan ditampilkan
     * jika kosong maka akan select semua
     */
-    public static function select($select)
+    public function select($select)
     {
         $this->selectables = func_get_args();
 
@@ -75,6 +77,7 @@ class QueryBuilder
         if (!empty($this->joinClause)) {
             $query[] = "JOIN";
             $query[] = $this->joinClause;
+            // $query[] = "ON".$this->onClause;
         }
 
         if (!empty($this->whereClause)) {
@@ -95,20 +98,3 @@ class QueryBuilder
         return join(' ', $query);
     }
 }
-
-$qb = new QueryBuilder();
-$bukti = "A1";
-$qb->select(
-    'jurnaldetil.nodetiljurnal',
-    'jurnaldetil.noakun',
-    'kodeunit.nama',
-    'jurnaldetil.tipe',
-    'jurnaldetil.jumlah',
-    'jurnaldetil.keterangan'
-    )
-    ->from('jurnaldetil')
-    ->join('asds', 'jurnaldetil.unit = kodeunit.unit')
-    ->where("jurnaldetil.nobukti = '$bukti'")
-    ->whereAnd("jurnaldetil.del = '0'")
-    ;
-echo $qb->result();

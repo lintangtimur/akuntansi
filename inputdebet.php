@@ -21,7 +21,6 @@ $sql_select = "SELECT jurnaldetil.nodetiljurnal,jurnaldetil.noakun, kodeunit.nam
   JOIN kodeunit ON jurnaldetil.unit = kodeunit.unit
   WHERE jurnaldetil.nobukti = '$bukti'
   AND jurnaldetil.del = '0'";
-
 $result = $con->query($sql_select);
 $table = "<tr>";
 $looping = 0;

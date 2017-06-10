@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Routing
+ * Untuk routing URL
  */
 class Router
 {

@@ -1,10 +1,19 @@
 <?php
+$qb = new QueryBuilder();
 $con = Connection::Connect();
+$qb->select(
+  'jurnalumum.nobukti',
+  'jurnalumum.tgltransaksi',
+  'jurnalumum.nojurnal',
+  'kodeunit.nama',
+  'jurnalumum.jenis'
+  )
+  ->from('jurnalumum')
+  ->join('kodeunit on kodeunit.unit = jurnalumum.unit')
+  ->where("jurnalumum.del = '0'")
+  ->whereAnd("jurnalumum.posting ='0'");
+
 $k = 0;
-$sql = "SELECT jurnalumum.nobukti, jurnalumum.tgltransaksi, jurnalumum.nojurnal, kodeunit.nama, jurnalumum.jenis
-FROM jurnalumum
-JOIN kodeunit on kodeunit.unit = jurnalumum.unit
-WHERE jurnalumum.del ='0'
-AND jurnalumum.posting ='0'";
-$result = $con->query($sql);
+
+$result = $con->query($qb->result());
 require "view/posting.view.php";
