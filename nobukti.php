@@ -34,8 +34,6 @@ if (!$error) {
         "bulan" => RomanMonths::Convert($bulan),
         "tahun" => $tahun
       ];
-
-      // $nomor."/".$pilih."/".$unit."/".RomanMonths::Convert($bulan)."/".$tahun
 } else {
     $data = [
       "error" => true,
