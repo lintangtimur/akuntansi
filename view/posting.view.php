@@ -67,7 +67,7 @@
           </div>
           <div class="modal-footer">
             <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat red ">Nope!</a>
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Setuju</a>
+            <a href="#!" id="agree" class="modal-action waves-effect waves-green btn-flat ">Setuju</a>
           </div>
         </div>
     <script src="asset/js/jquery.js"></script>

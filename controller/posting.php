@@ -4,7 +4,6 @@ $con = Connection::Connect();
 $qb->select(
   'jurnalumum.nobukti',
   'jurnalumum.tgltransaksi',
-  'jurnalumum.nojurnal',
   'kodeunit.nama',
   'jurnalumum.jenis'
   )

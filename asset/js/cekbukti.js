@@ -106,8 +106,19 @@ $(document).ready(function(){
   });
 
   $('#posting').click(function(){
-    console.log("keklik");
+    console.log("Modal button posting di klik");
     $('#modal_confirm').modal('open');
+
+  });
+
+  $('#agree').click(function(){
+    $.ajax({
+      type: 'post',
+      url: 'posting.php',
+      success: function(resp){
+        console.log(resp);
+      }
+    });
   });
 
   $("#unit").change(function(){
