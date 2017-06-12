@@ -20,7 +20,7 @@ $router->register([
 ```
 **URL Routing** contoh kasus nya seperti biasanya kita mengakses sebuah URL `http://localhost/about.php`, dengan URL route dapat
 dihasilkan menjadi `http://localhost/about`. Jika mengakses url yang tidak ada dalam daftar routing maka akan muncul halaman `404`.<br>
-Contoh diatas saya ambil dari tutorial PHP Practitioner milik Laracast. 
+Contoh diatas saya ambil dari tutorial PHP Practitioner milik Laracast.
 
 ## QueryBuilder
 Pada dasarnya ketika kita membuat SQL query kita menuliskan dengan mentah biasa seperti ini
@@ -28,8 +28,8 @@ Pada dasarnya ketika kita membuat SQL query kita menuliskan dengan mentah biasa 
 SELECT jurnalunum.nobukti FROM jurnalumum WHERE jurnalumum.del = '0'
 ```
 Dengan **QueryBuilder** kita dapat membuat syntax tersebut lebih elegan.<br>
-Create new object 
-```php 
+Create new object
+```php
 $qb = new QueryBuilder();
 ```
 
@@ -55,9 +55,9 @@ Class ini saya ambil dari Stackoverflow dengan menambahkan beberapa perform.
 - [x] Input ke jurnalumum
 - [ ] More Object Oriented
 - [ ] **Security** prevent from SQL Injection
-- [ ] posting
+- [X] posting
   - [x] Menampilkan posting
-  - [ ] tombol posting belum ada action jika [Agree] or [Disagree]
+  - [x] Posting ke jurnalumum
 - [ ] closing
 
 
