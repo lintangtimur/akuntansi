@@ -5,6 +5,6 @@
     <title>NOT FOUND | STELIN</title>
   </head>
   <body>
-    <h1>stelinError - 404 NOT FOUND</h1>
+    <h1>Akuntansi - <?= $request;?> tidak ditemukan :(</h1>
   </body>
 </html>
