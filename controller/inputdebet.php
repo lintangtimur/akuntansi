@@ -1,6 +1,6 @@
 <?php
-require "core/database/Connection.php";
-require "core/utilities/Currency.php";
+// require "core/database/Connection.php";
+// require "core/utilities/Currency.php";
 header('Content-Type: application/json');
 $con = Connection::Connect();
 
@@ -21,7 +21,6 @@ $sql_select = "SELECT jurnaldetil.nodetiljurnal,jurnaldetil.noakun, kodeunit.nam
   JOIN kodeunit ON jurnaldetil.unit = kodeunit.unit
   WHERE jurnaldetil.nobukti = '$bukti'
   AND jurnaldetil.del = '0'";
-
 $result = $con->query($sql_select);
 $table = "<tr>";
 $looping = 0;
@@ -50,5 +49,6 @@ $sql_sum = "SELECT SUM(jumlah) AS total
 $result = $con->query($sql_sum);
 while ($row = $result->fetch_object()) {
     $data['total'] = Currency::rupiah($row->total);
+    // $data['total'] = $row->total;
 }
 echo json_encode($data);

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>NOT FOUND</title>
+    <title>NOT FOUND | STELIN</title>
   </head>
   <body>
-    <h1>Not Found</h1>
+    <h1>stelinError - 404 NOT FOUND</h1>
   </body>
 </html>

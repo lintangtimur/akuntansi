@@ -292,8 +292,7 @@
         <button id="simpan" class="modal-action modal-close waves-effect waves-green btn-flat" name="" type="submit" >SIMPAN</button>
       </div>
     </div>
-    <script src="asset/js/jquery.js"></script>
-    <script src="asset/js/cekbukti.js"></script>
-    <script src="asset/js/materialize.js"></script>
+<?php require "partials/footer.php"; ?>
+
   </body>
 </html>

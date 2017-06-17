@@ -28,7 +28,7 @@ $(document).ready(function(){
 
     $.ajax({
       type: 'POST',
-      url: 'inputdebet.php',
+      url: 'inputdebet',
       data:data1
     })
     .done(function(data){
@@ -57,7 +57,7 @@ $(document).ready(function(){
 
       $.ajax({
         type: 'POST',
-        url: 'inputkredit.php',
+        url: 'inputkredit',
         data:data1
       })
       .done(function(data){
@@ -85,7 +85,7 @@ $(document).ready(function(){
     {
       $.ajax({
         type: "post",
-        url: "input_jurnalumum.php",
+        url: "inputjurnalumum",
         data: payload,
         dataType : 'json',
         encode : true,
@@ -111,12 +111,17 @@ $(document).ready(function(){
 
   });
 
+// tombol setuju jika akan di posting ke jurnalumum
   $('#agree').click(function(){
     $.ajax({
       type: 'post',
-      url: 'posting.php',
+      url: 'accposting',
       success: function(resp){
-        console.log(resp);
+        if(resp == "sukses")
+        {
+          $('.modal').modal('close');
+          location.reload();
+        }
       }
     });
   });
@@ -129,7 +134,7 @@ $(document).ready(function(){
     datanya = "unitkredit="+unitKredit+'&tipeKas='+pilih+'&tgl='+tglTransaksi;
 
     $.ajax({
-      url : "nobukti.php",
+      url : "nobukti",
       type : "POST",
       dataType : "json",
       data : datanya,

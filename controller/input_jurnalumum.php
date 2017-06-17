@@ -1,5 +1,5 @@
 <?php
-require "core/database/Connection.php";
+// require "core/database/Connection.php";
 header('Content-Type: application/json');
 
 $con = Connection::Connect();

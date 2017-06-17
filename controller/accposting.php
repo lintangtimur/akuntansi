@@ -1,10 +1,10 @@
 <?php
-require "core/database/Connection.php";
-require "core/database/QueryBuilder.php";
+// require "core/database/Connection.php";
+// require "core/database/QueryBuilder.php";
 $con = Connection::Connect();
 $qb = new QueryBuilder();
 
-// Larangan Request ke halaman
+// Larangan Request ke halaman jika selain POST
 if ($_SERVER['REQUEST_METHOD'] != "POST") {
     die("/GET request type is prohibited!");
 }
@@ -25,4 +25,7 @@ function updateJU($con, $nojurnal)
 {
     $sql = "UPDATE  jurnalumum SET  posting =  '1',tglpost = now() WHERE  nojurnal ='$nojurnal'";
     $con->query($sql);
+    if ($con) {
+        echo "sukses";
+    }
 }
