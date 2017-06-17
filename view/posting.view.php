@@ -29,7 +29,7 @@
     <!-- Halaman utama -->
     <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
     <div id="content">
-      <button class="btn light-blue darken-4 waves-effect waves-light" type="button" name="button" id="posting">POSTING</button>
+      <button class="btn light-blue darken-4 waves-effect waves-light pulse" type="button" name="button" id="posting">POSTING</button>
       <div class="section">
         <div class="row">
           <div class="col s12">
