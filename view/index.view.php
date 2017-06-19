@@ -3,63 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>AKUNTANSI JURNAL</title>
-    <link rel="stylesheet" href="asset/css/materialize.min.css">
-    <link rel="stylesheet" href="https:/fonts.googleapis.com/icon?family=Material+Icons">
-  </head>
-  <body>
-  <style type="text/css">
-  body{
-    background-color: #eceff1 ;
-  }
-  input#jumlahD{
-    font-weight: bold;
-    color: #0d47a1;
-  }
-  #container{
-    padding-left: 300px;
-  }
-  .harga{
-    text-align: right;
-  }
-  #toast-container {
-    /*min-width: 100%;*/
-    top: 90%;
-    left: 40%;
-    right: unset;
-}
-  ul.dropdown-content.select-dropdown li span {
-    color: #5e35b1  ; /* no need for !important :) */
-}
-  #content{
-    padding : 40px;
-  }
-  label{
-    font-size: 20px;
-  }
-  /* label focus color */
-   .input-field input:focus + label {
-     color: red !important;
-   }
-   .input-field{
-     color: black;
-   }
-   /* label underline focus color */
-   .row .input-field input:focus {
-     border-bottom: 1px solid red !important;
-     box-shadow: 0 1px 0 0 red !important
-   }
-   input[type="search"] {
-     height: 64px !important; /* or height of nav */
-   }
-  @media only screen and (max-width : 992px) {
-      #container {
-        padding-left: 0;
-      }
-    }
-  </style>
-
-  <?php require "partials/header.php"; ?>
-
+<?php require "partials/header.php"; ?>
 
 <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
     <div id="content">

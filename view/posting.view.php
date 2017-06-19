@@ -3,27 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>POSTING</title>
-    <link rel="stylesheet" href="asset/css/materialize.min.css">
-    <link rel="stylesheet" href="https:/fonts.googleapis.com/icon?family=Material+Icons">
-  </head>
-  <body>
-    <style type="text/css">
-    #container{
-      padding-left: 300px;
-    }
-    input[type="search"] {
-      height: 64px !important; /* or height of nav */
-    }
-    #content{
-      padding : 40px;
-    }
-    @media only screen and (max-width : 992px) {
-        #container {
-          padding-left: 0;
-        }
-      }
-    </style>
-
     <?php require "partials/header.php"; ?>
 
     <!-- Halaman utama -->

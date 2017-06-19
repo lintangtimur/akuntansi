@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="asset/css/materialize.min.css">
+<link rel="stylesheet" href="asset/css/main.css">
+<link rel="stylesheet" href="https:/fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
     <nav class="top-nav blue darken-1">
       <div id="container" class="container nav-wrapper">
           <a href="/" class="brand-logo">UNIKA</a>
@@ -34,3 +38,4 @@
       </ul>
     </li>
   </ul>
+  <body>
