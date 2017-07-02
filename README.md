@@ -53,12 +53,14 @@ Class ini saya ambil dari Stackoverflow dengan menambahkan beberapa perform.
 ## Todo
 - [x] Input ke jurnaldetil
 - [x] Input ke jurnalumum
+- [x] Input debet sudah dalam format currency, menggunakan accounting.js
 - [ ] More Object Oriented
 - [ ] **Security** prevent from SQL Injection
+  - [x] 5% using prepared statement
 - [X] posting
   - [x] Menampilkan posting
   - [x] Posting ke jurnalumum
-- [ ] closing
+- [ ] report
 
 
 ## Issue
