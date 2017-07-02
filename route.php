@@ -9,5 +9,6 @@ $router->register([
   "inputdebet" => "controller/inputdebet.php",
   "inputkredit" => "controller/inputkredit.php",
   "inputjurnalumum" => "controller/input_jurnalumum.php",
-  "accposting" => "controller/accposting.php"
+  "accposting" => "controller/accposting.php",
+  "reportrinci" => "controller/reportrinci.php"
 ]);
