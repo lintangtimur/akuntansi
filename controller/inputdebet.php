@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 $con = Connection::Connect();
 
 $inputakun = $_POST['inputakun'];
-$jumlah = $_POST['jumlahinput'];
+$jumlah = str_replace(",", "", $_POST['jumlahinput']);
 $bukti = $_POST['bukti'];
 $jenis = $_POST['tipe'];
 $unit = $_POST['nounit'];

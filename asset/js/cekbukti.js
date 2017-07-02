@@ -8,6 +8,13 @@ $(document).ready(function() {
 
   $('.modal').modal();
 
+  //Jumlah Debet accounting.js
+  $('#jumlahinput').on('change keyup keydown', function() {
+    var nilaiDebet = $('#jumlahinput').val();
+
+    $('#jumlahinput').val(accounting.formatNumber(nilaiDebet));
+  });
+
   $('.button-collapse').sideNav({
     menuWidth: 300, // Default is 300
     edge: 'left', // Choose the horizontal origin
@@ -145,5 +152,29 @@ $(document).ready(function() {
         }
       }
     });
+  });
+});;
+
+$("#unit").change(function() {
+  var pilih = $("#tipeKas").val();
+  var tglTransaksi = $("#tglTransaksi").val();
+  var unitKredit = $("#unit").val();
+
+  datanya = "unitkredit=" + unitKredit + '&tipeKas=' + pilih + '&tgl=' + tglTransaksi;
+
+  $.ajax({
+    url: "nobukti",
+    type: "POST",
+    dataType: "json",
+    data: datanya,
+    encode: true,
+    success: function(ajaxData) {
+      // console.log(ajaxData);
+      if (ajaxData.error) {
+        Materialize.toast(ajaxData.message, 4000, 'red accent-2');
+      } else {
+        $("#bukti").val(ajaxData.nomor + "/" + ajaxData.pilih + "/" + ajaxData.unit + "/" + ajaxData.bulan + "/" + ajaxData.tahun);
+      }
+    }
   });
 });

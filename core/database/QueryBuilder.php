@@ -16,6 +16,7 @@ class QueryBuilder
     /**
     * select table mana saja yang akan ditampilkan
     * jika kosong maka akan select semua
+    * @var string argument
     */
     public function select($select)
     {
@@ -24,6 +25,9 @@ class QueryBuilder
         return $this;
     }
 
+    /**
+    * memilih dari table mana
+    */
     public function from($table)
     {
         $this->table = $table;

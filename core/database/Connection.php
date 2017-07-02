@@ -1,5 +1,8 @@
 <?php
 
+/**
+* Membuat koneksi ke database
+*/
 class Connection
 {
     public static function Connect()
