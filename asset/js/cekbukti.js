@@ -15,6 +15,13 @@ $(document).ready(function() {
     $('#jumlahinput').val(accounting.formatNumber(nilaiDebet));
   });
 
+  //Jumlah Kredit modal input
+  $('#jumlahinput_kredit').on('change keyup keydown', function() {
+    var nilaiKredit = $('#jumlahinput_kredit').val();
+
+    $('#jumlahinput_kredit').val(accounting.formatNumber(nilaiKredit));
+  });
+
   $('.button-collapse').sideNav({
     menuWidth: 300, // Default is 300
     edge: 'left', // Choose the horizontal origin
@@ -79,6 +86,7 @@ $(document).ready(function() {
   });
 
   $("#selesai").click(function() {
+    $('#loading').show();
     var bukti = $("#bukti").val();
     var nounit = $("#unit").val();
     var tanggal = $("#tglTransaksi").val();
@@ -106,7 +114,7 @@ $(document).ready(function() {
         }
       });
     } else {
-      Materialize.toast("<i class='material-icons'>info</i>Jumlah debet tidak sama dengan jumlah kredit" + jumlahKredit, 3000, 'deep-orange lighten-1');
+      Materialize.toast("<i class='material-icons'>info</i>Jumlah debet tidak sama dengan jumlah kredit", 3000, 'deep-orange lighten-1');
     }
   });
 
@@ -153,7 +161,7 @@ $(document).ready(function() {
       }
     });
   });
-});;
+});
 
 $("#unit").change(function() {
   var pilih = $("#tipeKas").val();
