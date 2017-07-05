@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <title>REPORT</title>
     <?php require "partials/header.php"; ?>
-  </head>
-  <body>
-    <?php require "partials/footer.php"; ?>
+
     <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
 
     <div class="" id="content">
@@ -26,11 +24,11 @@
         <div class="card-content">
            <span class="card-title">Laporan Buku Besar per transaksi</span>
            <div class="card-action">
-
+             <form action="reportrinci" method="post">
               <div class="row">
                 <label for="nameField">No Akun</label>
                 <div class="input-field col s12 inline">
-                  <select id="inputakun" name="jenisakun">
+                  <select id="inputakun" name="kodeakun">
                     <option value="">Pilih</option>
                     <?php while ($row = $result->fetch_object()):?>
                       <option value="<?= $row->kode2;?>"><?= $row->kode1?><?= $row->kode2?> | <?= $row->Nama;?></option>
@@ -42,17 +40,24 @@
               <div class="row">
                 <label for="unitField">Awal Transaksi</label>
                 <div class="input-field col s12 inline">
-                  <input type="date" name="" value="<?php echo date('Y-m');?>">
+                  <input type="date" class="datepicker" name="tglawal" value="<?php echo date('Y-m');?>">
                 </div>
               </div>
 
               <div class="row">
                 <label for="unitField">Akhir Transaksi</label>
                 <div class="input-field col s12 inline">
-                  <input type="date" name="" value="<?php echo date('Y-m');?>">
+                  <input type="date" class="datepicker" name="tglakhir" value="<?php echo date('Y-m');?>">
                 </div>
               </div>
 
+              <div class="row">
+                <div class="input-field col s12 inline">
+                  <button class="btn blue darken-1 waves-effect waves-light" type="submit" name="button">REPORT VIEW</button>
+                </div>
+              </div>
+
+            </form>
             </div>
         </div>
       </div>
