@@ -5,6 +5,18 @@ input#jumlahD{
   font-weight: bold;
   color: #0d47a1;
 }
+/*.side-nav{
+  background-color: #c3c3c3;
+}*/
+#loading{
+  display: none;
+  max-width: 10%;
+  max-height: 30%;
+}
+input#jumlahK{
+  font-weight: bold;
+  color: #0d47a1;
+}
 #container{
   padding-left: 300px;
 }
