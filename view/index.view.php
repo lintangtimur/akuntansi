@@ -12,7 +12,7 @@
           <div class="col s12">
             <div class="card z-depth-4">
               <div class="card-content">
-                <h4>INPUT JURNAL</h4>
+                <h4>INPUT JURNAL </h4>
               </div>
             </div>
           </div>
@@ -29,7 +29,7 @@
                 <label for="">TIPE KAS</label>
                 <div class="input-field col s12 inline">
                   <select id="tipeKas">
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" selected>Choose your option</option>
                     <option value="KM">KAS MASUK</option>
                     <option value="KK">KAS KELUAR</option>
                     <option value="BM">BANK MASUK</option>
@@ -117,6 +117,7 @@
         </div>
 
       </div>
+      <img id="loading" src="../asset/svg/Ellipsis.svg">
       <button  id="selesai" type="button" class="btn green waves-effect waves-light" name="button">DONE</button>
     </div>
     </div>
