@@ -28,17 +28,17 @@
               <div class="row">
                 <label for="nameField">No Akun</label>
                 <div class="input-field col s12 inline">
-                  <select id="inputakun" name="kodeakun">
-                    <option value="">Pilih</option>
+                  <select id="akunmodal" name="kodeakun">
+                    <option value="all">Pilih</option>
                     <?php while ($row = $result->fetch_object()):?>
-                      <option value="<?= $row->kode2;?>"><?= $row->kode1?><?= $row->kode2?> | <?= $row->Nama;?></option>
+                      <option value="<?= $row->kode2;?>"><?= $row->kode2?> | <?= $row->Nama;?></option>
                     <?php endwhile; ?>
                   </select>
                 </div>
               </div>
 
               <div class="row">
-                <label for="unitField">Awal Transaksi</label>
+                <label for="unitField">Tangal Awal</label>
                 <div class="input-field col s12 inline">
                   <input type="date" class="datepicker" name="tglawal" value="<?php echo date('Y-m');?>">
                 </div>
@@ -47,7 +47,7 @@
               <div class="row">
                 <label for="unitField">Akhir Transaksi</label>
                 <div class="input-field col s12 inline">
-                  <input type="date" class="datepicker" name="tglakhir" value="<?php echo date('Y-m');?>">
+                  <input type="date" class="datepicker" name="tglakhir">
                 </div>
               </div>
 
