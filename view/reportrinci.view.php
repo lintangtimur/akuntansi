@@ -20,8 +20,7 @@
 
           if ($count > 0) {
               echo "<br>
-              <div class='card z-depth-4'>
-              <div class='card-content'>
+
               <h5>$rp->Nama --- $rp->kode2</h5><br>";
 
               echo "<h5>Saldo Awal: ".Currency::rupiah($saldoawal)."</h5>"; ?>
@@ -83,11 +82,37 @@
               }
               $saldoakhir = 0; ?>
           </table>
-          <h5>Jumlah Debet: <?= Currency::rupiah($jumlahdebet); ?></h5>
+          <!-- <h5>Jumlah Debet: <?= Currency::rupiah($jumlahdebet); ?></h5>
           <h5>Jumlah kredit: <?= Currency::rupiah($jumlahkredit); ?></h5>
-          <h5>Saldo Akhir: <?= Currency::rupiah($saldo); ?></h5>
-        </div>
-        </div>
+          <h5>Saldo Akhir: <?= Currency::rupiah($saldo); ?></h5> -->
+          <div class="row">
+            <div class="col s4">
+              <div class="card  red darken-2">
+                <div class="card-content white-text">
+                  <span class="card-title"><b>Jumlah Debet</b></span>
+                  <?= Currency::rupiah($jumlahdebet); ?>
+                </div>
+              </div>
+            </div>
+            <div class="col s4">
+              <div class="card deep-orange darken-1">
+                <div class="card-content white-text">
+                  <span class="card-title"><b>Jumlah Kredit</b></span>
+                  <?= Currency::rupiah($jumlahkredit); ?>
+                </div>
+              </div>
+            </div>
+            <div class="col s4">
+              <div class="card light-green darken-2">
+                <div class="card-content white-text">
+                  <span class="card-title"><b>Saldo Akhir</b></span>
+                  <?= Currency::rupiah($saldo); ?>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- </div>
+        </div> -->
           <?php
 
           }
@@ -95,32 +120,7 @@
       ?>
     </div> <!--Akhir Row col s12 -->
       </div><!--Akhir Row -->
-      <div class="row">
-        <div class="col s4">
-          <div class="card blue">
-            <div class="card-content white-text">
-              <span class="card-title"><b>Jumlah Debet</b></span>
-              asu
-            </div>
-          </div>
-        </div>
-        <div class="col s4">
-          <div class="card indigo">
-            <div class="card-content white-text">
-              <span class="card-title"><b>Jumlah Kredit</b></span>
-              asu
-            </div>
-          </div>
-        </div>
-        <div class="col s4">
-          <div class="card purple">
-            <div class="card-content white-text">
-              <span class="card-title"><b>Saldo Akhir</b></span>
-              asu
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div> <!--div id content -->
 
   </body>
