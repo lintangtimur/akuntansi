@@ -1,3 +1,7 @@
+<?php
+
+
+ ?>
 <link rel="stylesheet" href="asset/css/materialize.min.css">
 <link rel="stylesheet" href="asset/css/main.css">
 <link rel="stylesheet" href="https:/fonts.googleapis.com/icon?family=Material+Icons">
@@ -22,6 +26,7 @@
     <li><a href="report">Report</a></li>
     <li><a href="about">About</a></li>
     <li><a href="posting">Posting</a></li>
+    <li><a href="out">LOGOUT</a></li>
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
         <li>
