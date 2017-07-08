@@ -10,5 +10,8 @@ $router->register([
   "inputkredit" => "controller/inputkredit.php",
   "inputjurnalumum" => "controller/input_jurnalumum.php",
   "accposting" => "controller/accposting.php",
-  "reportrinci" => "controller/reportrinci.php"
+  "reportrinci" => "controller/reportrinci.php",
+  "login" => "controller/login.php",
+  "loginproses" => "controller/logproses.php",
+  "out" => "controller/logout.php"
 ]);
