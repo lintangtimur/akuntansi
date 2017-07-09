@@ -114,6 +114,7 @@ $(document).ready(function() {
         }
       });
     } else {
+		$('#loading').hide();
       Materialize.toast("<i class='material-icons'>info</i>Jumlah debet tidak sama dengan jumlah kredit", 3000, 'deep-orange lighten-1');
     }
   });
