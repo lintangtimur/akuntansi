@@ -7,7 +7,9 @@
     require "partials/header.php"; ?>
     <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
     <div class="" id="content">
-      <h4><?=$awalbulan." "."-"." ".$akhirbulan;?></h4>
+      <h4>
+        <?=date('l, jS F, Y', strtotime($awalbulan))." "."-"." ".date('l, jS F, Y', strtotime($akhirbulan));?>
+      </h4>
       <?php
 
       while ($rp = $query->fetch_object()) {
