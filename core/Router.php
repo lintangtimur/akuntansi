@@ -6,7 +6,7 @@
 class Router
 {
     private $routes = [];
-
+    
     public function register(array $route)
     {
         $this->routes = $route;
