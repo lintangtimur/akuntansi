@@ -14,10 +14,10 @@ class QueryBuilder
     protected $bajingan;
 
     /**
-    * select table mana saja yang akan ditampilkan
-    * jika kosong maka akan select semua
-    * @var string argument
-    */
+     * select clause
+     * @param  string $select select * clause
+     * @return object        this object
+     */
     public function select($select)
     {
         $this->selectables = func_get_args();
