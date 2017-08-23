@@ -26,8 +26,10 @@ class QueryBuilder
     }
 
     /**
-    * memilih dari table mana
-    */
+     * from clause
+     * @param  string $table memilih dari table mana
+     * @return object       from clause
+     */
     public function from($table)
     {
         $this->table = $table;
@@ -49,6 +51,11 @@ class QueryBuilder
         return $this;
     }
 
+    /**
+     * Batas limit yang akan ditampilkan
+     * @param  string $limit limit yang diambil
+     * @return object limit
+     */
     public function limit($limit)
     {
         $this->limit = $limit;
@@ -56,6 +63,11 @@ class QueryBuilder
         return $this;
     }
 
+    /**
+     * join clause
+     * @param  string $join join table
+     * @return object
+     */
     public function join($join)
     {
         $this->joinClause = $join;
@@ -63,6 +75,10 @@ class QueryBuilder
         return $this;
     }
 
+    /**
+     * hasil dari query builder
+     * @return string query builder result in string
+     */
     public function result()
     {
         $query[] = "SELECT";

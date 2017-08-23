@@ -1,10 +1,13 @@
 <?php
-
+/**
+ * RomanMonth generator
+ */
 class RomanMonths
 {
     /**
-    * @var array asosiatif array, bulan ke bulan romawi
-    */
+     * asosiatif array bulan ke romawi
+     * @var array
+     */
     private static $arrayMonths = [
       "01" => "I",
       "02" => "II",
@@ -20,10 +23,10 @@ class RomanMonths
       "12" => "XII"
   ];
 
-    /**
-    * @var string $bulan bulan integer
-    * @return mixed convert dari bulan int ke bulan romawi, dengan asosiatif array
-    */
+  /**
+   * Convert bulan ke romawi
+   * @param string $bulan convert to string in asosiatif array
+   */
     public static function Convert($bulan)
     {
         if (array_key_exists($bulan, self::$arrayMonths)) {
