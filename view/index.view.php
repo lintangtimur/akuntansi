@@ -154,7 +154,7 @@ if (!isset($_SESSION['login'])) {
             <select id="akunmodal">
               <option value="" selected>PILIH</option>
               <?php
-              $sql = "SELECT kode1,kode2,Nama FROM  kode_rek2";
+              $sql = 'SELECT kode1,kode2,"Nama" FROM  kode_rek2';
               $result = $con->query($sql);
               foreach ($result as $row) :
               ?>
@@ -213,7 +213,7 @@ if (!isset($_SESSION['login'])) {
             <select id="akunmodal_kredit">
               <option value="" selected>PILIH</option>
               <?php
-              $sql = "SELECT kode1,kode2,Nama FROM  kode_rek2";
+              $sql = 'SELECT kode1,kode2,"Nama" FROM  kode_rek2';
               $result = $con->query($sql);
               foreach ($result as $row) :
               ?>
