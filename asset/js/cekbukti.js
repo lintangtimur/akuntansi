@@ -114,7 +114,7 @@ $(document).ready(function() {
         }
       });
     } else {
-		$('#loading').hide();
+      $('#loading').hide();
       Materialize.toast("<i class='material-icons'>info</i>Jumlah debet tidak sama dengan jumlah kredit", 3000, 'deep-orange lighten-1');
     }
   });
@@ -139,6 +139,7 @@ $(document).ready(function() {
     });
   });
 
+  // Ketika memilih UNIT di kredit, akan cek tanggal transaksi sudah dipilih apa belum
   $("#unit").change(function() {
     var pilih = $("#tipeKas").val();
     var tglTransaksi = $("#tglTransaksi").val();
