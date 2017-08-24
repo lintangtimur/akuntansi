@@ -21,11 +21,13 @@ if (!$error) {
     $tahun = substr($tgl, 0, 4); //2017-05-10 => 2017
 
     $count = 0;
-
-    $sql = "SELECT nojurnal FROM jurnalumum WHERE month(tgltransaksi) = '$bulan' and unit='$unit'
-            AND jenis='$pilih' AND year(tgltransaksi) = '$tahun'";
+    $sql = "SELECT nojurnal FROM jurnalumum WHERE
+	extract(MONTH FROM jurnalumum.tgltransaksi)='$bulan' and unit='$unit'
+    AND jenis='$pilih' AND extract(YEAR from jurnalumum.tgltransaksi)= '$tahun'";
+    // $sql = "SELECT nojurnal FROM jurnalumum WHERE month(tgltransaksi) = '$bulan' and unit='$unit'
+    //         AND jenis='$pilih' AND year(tgltransaksi) = '$tahun'";
     $result = $con->query($sql);
-    $count = $result->num_rows;
+    $count = $result->rowCount();
     $nomor = $count + 1;
     $data = [
         "nomor" => $nomor,
