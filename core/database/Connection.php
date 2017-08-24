@@ -11,8 +11,8 @@ class Connection
     public static function Connect()
     {
         try {
-            return new mysqli("localhost", "root", "", "jurnallatihan");
-        } catch (Exception $e) {
+            return new PDO('pgsql:dbname=jurnallatihan;host=localhost', 'postgres', 'root');
+        } catch (PDOException $e) {
             die($e->getMessage());
         }
     }
