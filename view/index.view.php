@@ -79,9 +79,9 @@ if (!isset($_SESSION['login'])) {
                 <div class="input-field col s12 inline">
                   <select id="unit">
                     <option value="" disabled selected>Choose your option</option>
-                    <?php while ($row = $result->fetch_object()):?>
-                    <option value="<?=$row->unit?>"><?=$row->nama;?></option>
-                    <?php endwhile; ?>
+                    <?php foreach ($result as $row): ?>
+                      <option value="<?=$row['unit']?>"><?=$row['nama'];?></option>
+                    <?php endforeach; ?>
                   </select>
                 </div>
               </div>
@@ -141,9 +141,10 @@ if (!isset($_SESSION['login'])) {
               <option value="" disabled selected>Choose your option</option>
               <?php
               $result = $con->query($sql);
-              while ($row = $result->fetch_object()):?>
-              <option value="<?=$row->unit?>"><?=$row->nama;?></option>
-              <?php endwhile; ?>
+              foreach ($result as $row) :
+              // while ($row = $result->fetch_object()):?>
+              <option value="<?=$row['unit']?>"><?=$row['nama'];?></option>
+            <?php endforeach; ?>
             </select>
           </div>
         </div>
@@ -155,10 +156,10 @@ if (!isset($_SESSION['login'])) {
               <?php
               $sql = "SELECT kode1,kode2,Nama FROM  kode_rek2";
               $result = $con->query($sql);
-              while ($row = $result->fetch_object()) :
+              foreach ($result as $row) :
               ?>
-              <option value="<?= $row->kode2;?>"><?= $row->kode1?><?= $row->kode2?> | <?= $row->Nama;?></option>
-            <?php endwhile; ?>
+              <option value="<?= $row['kode2'];?>"><?= $row['kode1']?><?= $row['kode2']?> | <?= $row['Nama'];?></option>
+            <?php endforeach; ?>
             </select>
           </div>
         </div>
@@ -200,9 +201,9 @@ if (!isset($_SESSION['login'])) {
               <?php
               $sql = "SELECT unit, nama from kodeunit where deleted='no'";
               $result = $con->query($sql);
-              while ($row = $result->fetch_object()):?>
-              <option value="<?=$row->unit?>"><?=$row->nama;?></option>
-              <?php endwhile; ?>
+              foreach ($result as $row):?>
+              <option value="<?=$row['unit']?>"><?=$row['nama'];?></option>
+            <?php endforeach; ?>
             </select>
           </div>
         </div>
@@ -214,10 +215,10 @@ if (!isset($_SESSION['login'])) {
               <?php
               $sql = "SELECT kode1,kode2,Nama FROM  kode_rek2";
               $result = $con->query($sql);
-              while ($row = $result->fetch_object()) :
+              foreach ($result as $row) :
               ?>
-              <option value="<?= $row->kode2;?>"><?= $row->kode1?><?= $row->kode2?> | <?= $row->Nama;?></option>
-            <?php endwhile; ?>
+              <option value="<?= $row['kode2'];?>"><?= $row['kode1']?><?= $row['kode2']?> | <?= $row['Nama'];?></option>
+            <?php endforeach; ?>
             </select>
           </div>
         </div>
