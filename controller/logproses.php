@@ -18,7 +18,7 @@ $qb->select('*')
 $result = $con->query(
   $qb->result()
 );
-if ($result->num_rows == 1) {
+if ($result->fetchColumn() == 1) {
     $_SESSION['login'] = $username;
 }
 header("Location: /");
