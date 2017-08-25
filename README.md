@@ -6,7 +6,8 @@ Implementasi komputerisasi akuntansi berbasis web application, panduan berdasark
 | --- | --- |
 | `Materialize CSS` | front end web framework [Material Design] |
 | `Jquery AJAX` | use to perform some task and url |
-| `PHP 7 MySQLi` | im using this PHP version, and use MySQLi not PDO |
+| `Database` | using PostgreSQL |
+| `PHP 7.1 PDO` | using PHP version 7.1, and PDO |
 
 ## Basic URL Routing
 ```php
@@ -55,12 +56,10 @@ Class ini saya ambil dari Stackoverflow dengan menambahkan beberapa perform.
 - [x] Input ke jurnalumum
 - [x] Input debet sudah dalam format currency, menggunakan accounting.js
 - [ ] More Object Oriented
-- [ ] **Security** prevent from SQL Injection
-  - [x] 5% using prepared statement
 - [X] posting
   - [x] Menampilkan posting
   - [x] Posting ke jurnalumum
-- [ ] report
+- [X] report
 
 
 ## Issue
