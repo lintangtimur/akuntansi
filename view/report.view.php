@@ -35,8 +35,8 @@ if (!isset($_SESSION['login'])) {
                 <div class="input-field col s12 inline">
                   <select id="akunmodal" name="kodeakun">
                     <option value="all">Pilih</option>
-                    <?php while ($row = $result->fetch_object()):?>
-                      <option value="<?= $row->kode2;?>"><?= $row->kode2?> | <?= $row->Nama;?></option>
+                    <?php while ($row = $result->fetch()):?>
+                      <option value="<?= $row['kode2'];?>"><?= $row['kode2']?> | <?= $row['Nama'];?></option>
                     <?php endwhile; ?>
                   </select>
                 </div>

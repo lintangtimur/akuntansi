@@ -18,18 +18,30 @@ $nol3 = substr($akun, 3, 2); //00 00
 // echo $awalbulan." "."-"." ".$akhirbulan;
 
 if ($akun == 'all') {
-    $query = $con->query("SELECT kode2, Nama,status FROM kode_rek2");
+    $query = $con->query('SELECT kode2, "Nama",status FROM kode_rek2');
 } else {
     if ($nol1 == '0000') {
-        $query = $con->query("SELECT kode2, Nama,status FROM kode_rek2 where kode2 like '$pecah1%' ");
+        $query = $con->prepare('SELECT kode2, "Nama",status FROM kode_rek2 where kode2 like :pecah');
+        $query->execute([
+          ':pecah' => $pecah1.'%'
+        ]);
     } else {
         if ($nol2 == '000') {
-            $query = $con->query("SELECT kode2, Nama,status FROM kode_rek2 where kode2 like '$pecah2%' ");
+            $query = $con->prepare('SELECT kode2, "Nama",status FROM kode_rek2 where kode2 like :pecah');
+            $query->execute([
+              ':pecah' => $pecah2.'%'
+            ]);
         } else {
             if ($nol3 == '00') {
-                $query = $con->query("SELECT kode2, Nama,status FROM kode_rek2 where kode2 like '$pecah3%' ");
+                $query = $con->query('SELECT kode2, "Nama",status FROM kode_rek2 where kode2 like :pecah');
+                $query->execute([
+                  ':pecah' => $pecah3.'%'
+                ]);
             } else {
-                $query = $con->query("SELECT kode2, Nama,status FROM kode_rek2 where kode2 = '$akun' ");
+                $query = $con->query('SELECT kode2, "Nama",status FROM kode_rek2 where kode2 = :akun ');
+                $query->execute([
+                  ':akun' => $akun
+                ]);
             }
         }
     }

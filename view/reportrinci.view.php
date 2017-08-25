@@ -11,20 +11,20 @@
         <?=date('l, jS F, Y', strtotime($awalbulan))." "."-"." ".date('l, jS F, Y', strtotime($akhirbulan));?>
       </h4>
       <?php
-
-      while ($rp = $query->fetch_object()) {
-          $kode2 = $rp->kode2; //10000 11000
-          $status = $rp->status; //d d
+      while ($rp = $query->fetch()) {
+          $kode2 = $rp['kode2']; //10000 11000
+          $status = $rp['status']; //d d
 
           $res = $con->query("SELECT jurnalumum.tgltransaksi,jurnaldetil.nobukti,jurnaldetil.keterangan,jurnaldetil.noakun,jurnaldetil.unit,jurnaldetil.tipe,jurnaldetil.jumlah
-          FROM jurnaldetil join jurnalumum on jurnaldetil.nobukti = jurnalumum.nobukti
-          WHERE jurnalumum.del = '0' and jurnaldetil.del = '0' and jurnalumum.posting ='1' and jurnaldetil.noakun = $kode2 and month(jurnalumum.tgltransaksi) = '$bulan'and year(jurnalumum.tgltransaksi) = '$year'");
-          $count = $res->num_rows;
+FROM jurnaldetil join jurnalumum on jurnaldetil.nobukti = jurnalumum.nobukti
+WHERE jurnalumum.del = '0' and jurnaldetil.del = '0' and jurnalumum.posting ='1' and jurnaldetil.noakun = '$kode2' and extract(MONTH from jurnalumum.tgltransaksi)= '$bulan'
+and extract(YEAR from jurnalumum.tgltransaksi)= '$year'");
+          $count = $res->rowCount();
 
           if ($count > 0) {
               echo "<br>
 
-              <h5>$rp->Nama --- $rp->kode2</h5><br>";
+              <h5>".$rp['Nama']." --- ".$rp['kode2']."</h5><br>";
 
               echo "<h5>Saldo Awal: ".Currency::rupiah($saldoawal)."</h5>"; ?>
       <div class="row">
@@ -48,37 +48,37 @@
               $jumlahdebet = 0;
               $jumlahkredit = 0;
               $saldotrans = 0;
-              while ($r = $res->fetch_object()) {
+              while ($r = $res->fetch()) {
                   $K++;
 
-                  $tanggal = date('d-M-Y', strtotime($r->tgltransaksi));
+                  $tanggal = date('d-M-Y', strtotime($r['tgltransaksi']));
                   echo "<tr><td>$K</td>";
                   echo "<td>$tanggal</td>";
-                  echo "<td>$r->nobukti</td>";
-                  echo "<td>$r->keterangan</td>";
-                  if ($r->tipe == 'D') {
-                      $jumlahdebet = $jumlahdebet + $r->jumlah;
+                  echo "<td>".$r['nobukti']."</td>";
+                  echo "<td>".$r['keterangan']."</td>";
+                  if ($r['tipe'] == 'D') {
+                      $jumlahdebet = $jumlahdebet + $r['jumlah'];
                       if ($status == 'd') {
-                          $saldo = $saldo - $r->jumlah;
-                          $saldotrans = $saldotrans - $r->jumlah;
+                          $saldo = $saldo - $r['jumlah'];
+                          $saldotrans = $saldotrans - $r['jumlah'];
                       } else {
-                          $saldo = $saldo + $r->jumlah;
-                          $saldotrans = $saldotrans + $r->jumlah;
+                          $saldo = $saldo + $r['jumlah'];
+                          $saldotrans = $saldotrans + $r['jumlah'];
                       }
-                      echo "<td>".Currency::rupiah($r->jumlah)."</td>"; // KOlom DEBET
+                      echo "<td>".Currency::rupiah($r['jumlah'])."</td>"; // KOlom DEBET
                       echo "<td></td>";
                       echo "<td>".Currency::rupiah($saldo)."</td>"; //Kolom Saldo
                   } else {
-                      $jumlahkredit = $jumlahkredit + $r->jumlah;
+                      $jumlahkredit = $jumlahkredit + $r['jumlah'];
                       if ($status == 'd') {
-                          $saldo = $saldo + $r->jumlah;
-                          $saldotrans = $saldotrans + $r->jumlah;
+                          $saldo = $saldo + $r['jumlah'];
+                          $saldotrans = $saldotrans + $r['jumlah'];
                       } else {
-                          $saldo = $saldo - $r->jumlah;
-                          $saldotrans = $saldotrans - $r->jumlah;
+                          $saldo = $saldo - $r['jumlah'];
+                          $saldotrans = $saldotrans - $r['jumlah'];
                       }
                       echo "<td></td>";
-                      echo "<td>".Currency::rupiah($r->jumlah)."</td>"; //Kolom Kredit
+                      echo "<td>".Currency::rupiah($r['jumlah'])."</td>"; //Kolom Kredit
                       echo "<td>".Currency::rupiah($saldo)."</td></tr>
                       ";// Kolom SALDO
                   }
