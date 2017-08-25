@@ -15,10 +15,15 @@
           $kode2 = $rp['kode2']; //10000 11000
           $status = $rp['status']; //d d
 
-          $res = $con->query("SELECT jurnalumum.tgltransaksi,jurnaldetil.nobukti,jurnaldetil.keterangan,jurnaldetil.noakun,jurnaldetil.unit,jurnaldetil.tipe,jurnaldetil.jumlah
+          $res = $con->prepare("SELECT jurnalumum.tgltransaksi,jurnaldetil.nobukti,jurnaldetil.keterangan,jurnaldetil.noakun,jurnaldetil.unit,jurnaldetil.tipe,jurnaldetil.jumlah
 FROM jurnaldetil join jurnalumum on jurnaldetil.nobukti = jurnalumum.nobukti
-WHERE jurnalumum.del = '0' and jurnaldetil.del = '0' and jurnalumum.posting ='1' and jurnaldetil.noakun = '$kode2' and extract(MONTH from jurnalumum.tgltransaksi)= '$bulan'
-and extract(YEAR from jurnalumum.tgltransaksi)= '$year'");
+WHERE jurnalumum.del = '0' and jurnaldetil.del = '0' and jurnalumum.posting ='1' and jurnaldetil.noakun = :kode2 and extract(MONTH from jurnalumum.tgltransaksi)= :bulan
+and extract(YEAR from jurnalumum.tgltransaksi)= :year");
+          $res->execute([
+          ':kode2' => $kode2,
+          ':bulan' => $bulan,
+          ':year' => $year
+        ]);
           $count = $res->rowCount();
 
           if ($count > 0) {
