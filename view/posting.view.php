@@ -26,14 +26,14 @@ if (!isset($_SESSION['login'])) {
                 <th>Jenis</th>
               </tr>
               <?php
-              while ($row = $result->fetch_object()): ?>
+              while ($row = $result->fetch()): ?>
               <?php $k = $k + 1;  ?>
                   <tr>
                   <td><?= $k?></td>
-                  <td><?= $row->nobukti?></td>
-                  <td><?= $row->tgltransaksi?></td>
-                  <td><?=$row->nama?></td>
-                  <td><?=$row->jenis?></td>
+                  <td><?= $row['nobukti']?></td>
+                  <td><?= $row['tgltransaksi']?></td>
+                  <td><?=$row['nama']?></td>
+                  <td><?=$row['jenis']?></td>
                   </tr>
               <?php endwhile; ?>
             </table>

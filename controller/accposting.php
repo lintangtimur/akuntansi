@@ -15,12 +15,18 @@ $qb->select("nojurnal")
   ->where("del = 0")
   ->whereAnd("posting ='0'");
 $result = $con->query($qb->result());
-while ($row = $result->fetch_object()) {
+while ($row = $result->fetch()) {
 
     // update nojurnal berdasarkan no jurnal
-    updateJU($con, $row->nojurnal);
+    updateJU($con, $row['nojurnal']);
 }
 
+/**
+ * fungsi untuk update ke Jurnalumum
+ * @param  PDO $con      PDO connection
+ * @param  string $nojurnal nojurnal
+ * @return string          sukses or not
+ */
 function updateJU($con, $nojurnal)
 {
     $sql = "UPDATE  jurnalumum SET  posting =  '1',tglpost = now() WHERE  nojurnal ='$nojurnal'";

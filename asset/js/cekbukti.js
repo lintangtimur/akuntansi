@@ -106,7 +106,7 @@ $(document).ready(function() {
         success: function(data) {
           if (data.success) {
             Materialize.toast("Berhasil masuk ke jurnal umum", 4000, 'green accent-2');
-            location.reload();
+            //location.reload();
           } else {
             Materialize.toast("GAGAL input ke jurnal umum", 4000, 'red accent-2');
           }
