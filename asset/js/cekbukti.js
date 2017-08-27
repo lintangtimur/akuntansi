@@ -94,7 +94,7 @@ $(document).ready(function() {
     var jumlahDebet = $("#jumlahD").val();
     var jumlahKredit = $("#jumlahK").val();
 
-    payload = "bukti=" + bukti + "&nounit=" + nounit + "&tipeKas=" + tipeKas + "&tglTransaksi=" + tanggal;
+    payload = "bukti=" + bukti + "&nounit=" + nounit + "&tipeKas=" + tipeKas + "&tglTransaksi=" + tanggal + "&jumlahDebet=" + jumlahDebet + "&jumlahKredit=" + jumlahKredit;
 
     if (jumlahDebet == jumlahKredit) {
       $.ajax({
@@ -105,12 +105,16 @@ $(document).ready(function() {
         encode: true,
         success: function(data) {
           if (data.success) {
+            console.log(data);
             Materialize.toast("Berhasil masuk ke jurnal umum", 4000, 'green accent-2');
-            //location.reload();
+            $('#loading').hide();
+            // location.reload();
           } else {
-            Materialize.toast("GAGAL input ke jurnal umum", 4000, 'red accent-2');
+            if (data.hasOwnProperty('err')) {
+              Materialize.toast(data.err, 4000, 'red accent-2');
+            }
+            $('#loading').hide();
           }
-
         }
       });
     } else {
