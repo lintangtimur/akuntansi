@@ -51,10 +51,9 @@ $(document).ready(function() {
           Materialize.toast(data.error, 2000, 'red');
         } else {
           Materialize.toast('Success', 2000, 'green');
+          $("tbody").html(data.table);
+          $("#jumlahD").val(data.total);
         }
-
-        $("tbody").html(data.table);
-        $("#jumlahD").val(data.total);
       })
       .fail(function(data) {
         console.log(data);
@@ -82,10 +81,13 @@ $(document).ready(function() {
         data: data1
       })
       .done(function(data) {
-        console.log(data);
-        Materialize.toast('Success', 2000, 'green');
-        $("tbody").html(data.table);
-        $("#jumlahK").val(data.total);
+        if (data.hasOwnProperty('error')) {
+          Materialize.toast(data.error, 2000, 'red');
+        } else {
+          Materialize.toast('Success', 2000, 'green');
+          $("tbody").html(data.table);
+          $("#jumlahK").val(data.total);
+        }
       })
       .fail(function(data) {
         console.log(data);
