@@ -188,6 +188,69 @@ if (!isset($_SESSION['login'])) {
     </div>
   </form>
 
+  <!-- Modal Edit -->
+  <div id="modalEdit" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4>EDIT</h4>
+        <div class="row">
+          <form class="" id="modalDebet" action="" method="post">
+          <label for="">UNIT</label>
+          <div class="input-field col s12 inline">
+            <select id="unitmodal_edit">
+              <option value="" disabled selected>Choose your option</option>
+              <?php
+
+              $sql = "SELECT unit, nama from kodeunit where deleted='no'";
+              $result = $con->query($sql);
+              while ($row = $result->fetch()) :?>
+              <?php if ($row['nama'] == $nama): ?>
+                <option value="<?=$row['unit']?>" class='active selected'><?=$row['nama'];?></option>
+              <?php endif;?>
+              <option value="<?=$row['unit']?>"><?=$row['nama'];?></option>
+            <?php endwhile; ?>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <label for="">NO AKUN</label>
+          <div class="input-field col s12 inline">
+            <select id="akunmodal_edit">
+              <option value="" selected>PILIH</option>
+              <?php
+              $sql = 'SELECT kode1,kode2,"Nama" FROM  kode_rek2';
+              $result = $con->query($sql);
+              foreach ($result as $row) :
+              ?>
+              <option value="<?= $row['kode2'];?>"><?= $row['kode1']?><?= $row['kode2']?> | <?= $row['Nama'];?></option>
+            <?php endforeach; ?>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <label for="">JUMLAH</label>
+          <div class="input-field col s12 inline">
+            <input type="text" id="jumlahinput_edit" name="jumlahinput" value="">
+          </div>
+        </div>
+        <div class="row">
+          <label for="">KETERANGAN</label>
+          <div class="input-field col s12 inline">
+            <textarea id="keterangan_edit" class="materialize-textarea" data-length="120" name="keterangan" rows="8" cols="80"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <label for="">NO CEK</label>
+          <div class="input-field col s12 inline">
+            <input type="text" id="nocekmodal_edit" name="nocek" value="">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="editUpdate" class="modal-action modal-close waves-effect waves-green btn-flat" name="" type="submit" >UPDATE</button>
+      </div>
+    </div>
+  </form>
+
   <!-- Modal Kredit -->
   <div id="modal2" class="modal modal-fixed-footer">
       <div class="modal-content">

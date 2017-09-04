@@ -15,7 +15,7 @@ $keterangan = $_POST['keterangan'];
 if (empty($keterangan)) {
     $data['error'] = "Keterangan kosong";
 } else {
-    
+
     // Insert ke table jurnaldetil
     $insert_pdo = "INSERT INTO public.jurnaldetil(
 		nobukti, noakun, unit, tipe, jumlah, keterangan, nocek, del)
@@ -24,8 +24,6 @@ if (empty($keterangan)) {
     $result->execute([
       $bukti, $inputakun, $unit, $jenis, $jumlah, $keterangan, $nocek
     ]);
-    // $sql_insert = "INSERT INTO jurnaldetil
-    //  VALUES('','$bukti', '$inputakun', '$unit', '$jenis', '$jumlah', '$keterangan', '$nocek', '0')";
 
     $sql_select = "SELECT jurnaldetil.nodetiljurnal,jurnaldetil.noakun, kodeunit.nama,jurnaldetil.tipe,  jurnaldetil.jumlah,jurnaldetil.keterangan
 	  FROM jurnaldetil
@@ -47,7 +45,8 @@ if (empty($keterangan)) {
             $table .= "<td></td><td>$nominal</td>";
         }
         $table .= "<td>".$row['keterangan']."</td>";
-        $table .= "<td><button class='btn red darken-4 waves-effect waves-light' name=''>Del<i class='material-icons right'>delete_forever</i></button></td></tr>";
+        $table .= "<td><button class='btn red darken-4 waves-effect waves-light' name=''>Del<i class='material-icons right'>delete_forever</i></button></td>
+				<td><button data-target='modalEdit' id='edit' value='".$row['nodetiljurnal']."' class='waves-effect blue waves-light btn'><i class='material-icons left'>mode_edit</i>Edit</button></td></tr>";
     }
     $data['table'] = $table;
 

@@ -13,5 +13,6 @@ $router->register([
   "reportrinci" => "controller/reportrinci.php",
   "login" => "controller/login.php",
   "loginproses" => "controller/logproses.php",
-  "out" => "controller/logout.php"
+  "out" => "controller/logout.php",
+  "edit" => "controller/edit.php"
 ]);
