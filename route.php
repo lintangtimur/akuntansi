@@ -1,18 +1,23 @@
 <?php
 $router->register([
-  "" => "controller/index.php",
-  "about" => "controller/about.php",
-  "report" => "controller/report.php",
-  "404" => "controller/404.php",
-  "posting" => "controller/posting.php",
-  "nobukti" => "controller/nobukti.php",
-  "inputdebet" => "controller/inputdebet.php",
-  "inputkredit" => "controller/inputkredit.php",
-  "inputjurnalumum" => "controller/input_jurnalumum.php",
-  "accposting" => "controller/accposting.php",
-  "reportrinci" => "controller/reportrinci.php",
-  "login" => "controller/login.php",
-  "loginproses" => "controller/logproses.php",
-  "out" => "controller/logout.php",
-  "edit" => "controller/edit.php"
+  "404" => "controller/404.php"
 ]);
+
+//POST
+$router->post('loginproses', 'controller/logproses.php');
+$router->post('reportrinci', 'controller/reportrinci.php');
+$router->post('nobukti', "controller/nobukti.php");
+$router->post('inputdebet', 'controller/inputdebet.php');
+$router->post('inputkredit', 'controller/inputkredit.php');
+$router->post('inputjurnalumum', 'controller/input_jurnalumum.php');
+$router->post('accposting', "controller/accposting.php");
+
+
+//GET
+$router->get('', "controller/index.php");
+$router->get('out', "controller/logout.php");
+$router->get('login', "controller/login.php");
+$router->get('posting', "controller/posting.php");
+$router->get('about', "controller/about.php");
+$router->get("edit", "controller/edit.php");
+$router->get("report", "controller/report.php");

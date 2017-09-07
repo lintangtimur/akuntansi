@@ -9,7 +9,10 @@ class Router
    * penampungan URI
    * @var array
    */
-    private $routes = [];
+    public $routes = [
+      "GET" => [],
+      "POST" => []
+    ];
 
     /**
      * register routing array in routes
@@ -22,14 +25,31 @@ class Router
     }
 
     /**
-     * Direct spesific uri in current routes
-     * @param  string $uri URI
-     * @return string      from asosiatif array
+     * register get routes
+     * @param  string $uri        link
+     * @param  string $controller controller/[contreolller]
+     * @return [type]             [description]
      */
-    public function direct($uri)
+    public function get($uri, $controller)
     {
-        if (array_key_exists($uri, $this->routes)) {
-            return $this->routes[$uri];
+        $this->routes['GET'][$uri] = $controller;
+    }
+
+    public function post($uri, $controller)
+    {
+        $this->routes['POST'][$uri] = $controller;
+    }
+
+    /**
+     * direct uri
+     * @param  string $uri         request URI
+     * @param  string $requestType GET/POST
+     * @return mixed              hasil akan keredirect ke
+     */
+    public function direct($uri, $requestType)
+    {
+        if (array_key_exists($uri, $this->routes[$requestType])) {
+            return $this->routes[$requestType][$uri];
         } else {
             return $this->routes["404"];
         }

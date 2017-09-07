@@ -63,6 +63,10 @@ $(document).ready(function() {
     event.preventDefault();
   });
 
+  $('#editModal').click(function(event) {
+
+  });
+
   $("#modalKredit").submit(function(event) {
     event.preventDefault();
     var bukti2 = $("#bukti").val();
