@@ -28,13 +28,19 @@ class Router
      * register get routes
      * @param  string $uri        link
      * @param  string $controller controller/[contreolller]
-     * @return [type]             [description]
+     * @return array             from array[GET]
      */
     public function get($uri, $controller)
     {
         $this->routes['GET'][$uri] = $controller;
     }
 
+    /**
+     * POST method
+     * @param  string $uri        uri
+     * @param  string $controller path destination
+     * @return array             from array[POST]
+     */
     public function post($uri, $controller)
     {
         $this->routes['POST'][$uri] = $controller;

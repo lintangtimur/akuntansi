@@ -60,7 +60,7 @@ if (!isset($_SESSION['login'])) {
               </div>
               <div class="row">
                 <div class="input-field col s12 inline">
-                  <button data-target="modal1" class="btn blue darken-1 waves-effect waves-light"  name="">DEBET
+                  <button data-target="modal1" id="debetButton" class="btn blue darken-1 waves-effect waves-light"  name="">DEBET
                     <i class="material-icons right">send</i>
                   </button>
                 </div>
@@ -107,7 +107,7 @@ if (!isset($_SESSION['login'])) {
       <div class="card z-depth-4">
         <div class="card-content">
           <span class="card-title">JURNAL TABLE</span>
-          <table class="striped">
+          <table class="striped" id="jurnaldetil_table">
            <thead>
              <tr>
                  <th>#</th>
@@ -132,10 +132,12 @@ if (!isset($_SESSION['login'])) {
   <!-- Modal DEBET -->
   <div id="modal1" class="modal modal-fixed-footer">
       <div class="modal-content">
-        <h4>Debet Button</h4>
+        <h4 class="modal-title">Debet Button</h4>
         <div class="row">
           <form class="" id="modalDebet" action="" method="post">
           <label for="">UNIT</label>
+          <input type="hidden" name="nodetil_id" id="nodetil_id" value="">
+          <input type="hidden" name="operation" id="operation" value="">
           <div class="input-field col s12 inline">
             <select id="unitmodal">
               <option value="" disabled selected>Choose your option</option>
@@ -183,7 +185,7 @@ if (!isset($_SESSION['login'])) {
         </div>
       </div>
       <div class="modal-footer">
-        <button id="simpan" class="modal-action modal-close waves-effect waves-green btn-flat" name="" type="submit" >SIMPAN</button>
+        <button id="simpan" value="add" class="modal-action modal-close waves-effect waves-green btn-flat" name="" type="submit" >SIMPAN</button>
       </div>
     </div>
   </form>
@@ -193,7 +195,7 @@ if (!isset($_SESSION['login'])) {
       <div class="modal-content">
         <h4>EDIT</h4>
         <div class="row">
-          <form class="" id="modalDebet" action="" method="post">
+          <form class="" id="modalDebet_edit" action="" method="post">
           <label for="">UNIT</label>
           <div class="input-field col s12 inline">
             <select id="unitmodal_edit">

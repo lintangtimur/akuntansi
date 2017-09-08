@@ -11,7 +11,8 @@ $router->post('inputdebet', 'controller/inputdebet.php');
 $router->post('inputkredit', 'controller/inputkredit.php');
 $router->post('inputjurnalumum', 'controller/input_jurnalumum.php');
 $router->post('accposting', "controller/accposting.php");
-
+$router->post('editjurnal', 'controller/editjurnal.php');
+$router->post('deletejurnal', 'controller/deletejurnal.php');
 
 //GET
 $router->get('', "controller/index.php");

@@ -29,6 +29,73 @@ $(document).ready(function() {
     draggable: true // Choose whether you can drag to open on touch screens
   });
 
+  var dataTable = $('#jurnaldetil_table').DataTable({
+    "processing": true,
+    "serverSide": true,
+    "order": [],
+    "ajax": {
+      url: "fetch.php",
+      type: "POST"
+    },
+    "columnDefs": [{
+      "targets": [0, 3, 4],
+      "orderable": false,
+    }, ],
+
+  });
+
+  $(document).on('click', '.update', function() {
+    var nodetil = $(this).attr('id');
+
+    $.ajax({
+        url: 'editjurnal',
+        method: 'post',
+        dataType: 'json',
+        data: {
+          nodetil: nodetil
+        }
+      })
+      .done(function(data) {
+        console.log("success");
+        $('#jumlahinput').text(data.jumlah);
+        $('#keterangan').text(data.keterangan);
+        $('#action').val("Edit");
+        $('#operation').val("Edit");
+        $('#modal1').modal('open');
+      });
+  });
+
+  $(document).on('click', '.delete', function() {
+    var nodetil = $(this).attr('id');
+    if (confirm("yakin ingin menghapus ini?")) {
+      $.ajax({
+          url: 'deletejurnal',
+          method: 'post',
+          data: {
+            detilid: nodetil
+          }
+        })
+        .done(function(data) {
+          alert(data);
+          // dataTable.ajax.reload();
+        })
+        .fail(function() {
+          console.log("error");
+        })
+    } else {
+      return false;
+    }
+  });
+
+
+
+  $('#debetButton').click(function() {
+    $('#modalDebet')[0].reset();
+    $('.modal-title').text("Add Debet");
+    $('#action').val("Add");
+    $('#operation').val("Add");
+  });
+
   $("#modalDebet").submit(function(event) {
     var bukti2 = $("#bukti").val();
     var inputakun2 = $("#akunmodal").val();

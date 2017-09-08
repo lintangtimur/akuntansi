@@ -45,8 +45,8 @@ if (empty($keterangan)) {
             $table .= "<td></td><td>$nominal</td>";
         }
         $table .= "<td>".$row['keterangan']."</td>";
-        $table .= "<td><button class='btn red darken-4 waves-effect waves-light' name=''>Del<i class='material-icons right'>delete_forever</i></button></td>
-				<td><a href='".$row['nodetiljurnal']."'>EDIT</a></td></tr>";
+        $table .= "<td><button type=\"button\" id='".$row['nodetiljurnal']."' class='btn red darken-4 waves-effect waves-light delete' name='delete'>Del<i class='material-icons right'>delete_forever</i></button></td>
+				<td><button type=\"button\" name=\"update\" id='".$row['nodetiljurnal']."' class='btn green waves-effect update'>EDIT</a></td></tr>";
     }
     $data['table'] = $table;
 
