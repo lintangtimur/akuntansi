@@ -12,12 +12,16 @@ Implementasi komputerisasi akuntansi berbasis web application, panduan berdasark
 ## Basic URL Routing
 ```php
 $router->register([
-  "" => "controller/index.php",
-  "about" => "controller/about.php",
-  "report" => "controller/report.php",
   "404" => "controller/404.php",
-  "posting" => "controller/posting.php"
 ])
+
+//POST
+$router->post('inputjurnal', 'controller/inputjurnal.php');
+
+//GET
+$router->get('', 'controller/index.php');
+$router->get('report', 'controller/report.php');
+$router->get('posting', 'controller/posting.php');
 ```
 **URL Routing** contoh kasus nya seperti biasanya kita mengakses sebuah URL `http://localhost/about.php`, dengan URL route dapat
 dihasilkan menjadi `http://localhost/about`. Jika mengakses url yang tidak ada dalam daftar routing maka akan muncul halaman `404`.<br>
