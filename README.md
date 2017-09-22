@@ -1,3 +1,4 @@
+[![Code Climate](https://codeclimate.com/github/lintangtimur/akuntansi/badges/gpa.svg)](https://codeclimate.com/github/lintangtimur/akuntansi)
 ## About
 Implementasi komputerisasi akuntansi berbasis web application, panduan berdasarkan [UNIKA](http://intranet.unika.ac.id/jurnal).
 
